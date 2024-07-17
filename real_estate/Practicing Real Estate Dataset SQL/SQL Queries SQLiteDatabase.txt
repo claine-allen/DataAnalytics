@@ -1,0 +1,12 @@
+ALTER TABLE "zillow NY for-sale properties" RENAME TO properties;
+
+SELECT COUNT(property_id) FROM properties;
+
+SELECT AVG(price) FROM properties;
+
+SELECT DISTINCT property_id,price FROM properties WHERE city='Elmira' price BETWEEN '90000' AND '120000';
+
+SELECT city,price FROM properties WHERE street_name='Halderman Hollow Rd';
+
+SELECT city,price,bedroom_number FROM properties WHERE bedroom_number<3.0 AND living_space>1500;
+
