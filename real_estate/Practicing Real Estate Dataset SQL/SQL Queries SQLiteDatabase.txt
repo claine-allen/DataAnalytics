@@ -10,3 +10,14 @@ SELECT city,price FROM properties WHERE street_name='Halderman Hollow Rd';
 
 SELECT city,price,bedroom_number FROM properties WHERE bedroom_number<3.0 AND living_space>1500;
 
+SELECT COUNT(*) AS total_properties FROM properties;
+
+SELECT AVG(price/living_space) AS avg_price_per_sqft FROM properties;
+
+SELECT * FROM properties ORDER BY bedroom_number DESC LIMIT 10;
+
+SELECT property_type, AVG(listing_age) AS avg_listing_age FROM properties GROUP BY property_type;
+
+SELECT * FROM properties WHERE city='Long Island';
+
+SELECT price_range,COUNT(*) AS property_count FROM (SELECT CASE WHEN price<100000 THEN 'Under $100k' WHEN price<200000 THEN '$100k-$200k' WHEN price<300000 THEN '$200k-300k' ELSE 'Over 300k' END AS price_range FROM properties) AS price_groups GROUP BY price_range ORDER BY price_range;
